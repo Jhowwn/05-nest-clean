@@ -1,4 +1,4 @@
-import { PaginationParms } from '@/core/repositories/pagination-params'
+import { PaginationParams } from '@/core/repositories/pagination-params'
 import { AnswerComment } from '../../enterprise/entities/answer-comment'
 
 export interface AnswersCommentsRepository {
@@ -6,7 +6,7 @@ export interface AnswersCommentsRepository {
   findById(id: string): Promise<AnswerComment | null>
   findManyByAnswerId(
     answerId: string,
-    parms: PaginationParms,
+    parms: PaginationParams,
   ): Promise<AnswerComment[]>
   delete(answersComment: AnswerComment): Promise<void>
 }

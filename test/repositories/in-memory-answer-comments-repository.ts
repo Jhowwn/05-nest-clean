@@ -1,4 +1,4 @@
-import { PaginationParms } from '@/core/repositories/pagination-params'
+import { PaginationParams } from '@/core/repositories/pagination-params'
 import { AnswersCommentsRepository } from '@/domain/forum/application/repositories/answer-comments-repository'
 import { AnswerComment } from '@/domain/forum/enterprise/entities/answer-comment'
 
@@ -21,7 +21,7 @@ export class InMemoryAnswerCommentsRepository
     return answerComment
   }
 
-  async findManyByAnswerId(answerId: string, { page }: PaginationParms) {
+  async findManyByAnswerId(answerId: string, { page }: PaginationParams) {
     const answerComment = this.items
       .filter((item) => item.answerId.toString() === answerId)
       .slice((page - 1) * 20, page * 20)

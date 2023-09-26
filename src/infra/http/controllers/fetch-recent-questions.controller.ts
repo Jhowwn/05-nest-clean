@@ -2,7 +2,7 @@ import { FetchRecentQuestionsUseCase } from '@/domain/forum/application/use-case
 import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation-pipe'
 import { BadRequestException, Controller, Get, Query } from '@nestjs/common'
 import { z } from 'zod'
-import { QuestionPresenter } from '../presemters/question-presenter'
+import { QuestionPresenter } from '../presenters/question-presenter'
 
 const pageQueryParamSchema = z
   .string()

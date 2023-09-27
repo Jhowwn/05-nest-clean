@@ -1,4 +1,4 @@
-import { QuestionsAttachmentsRepository } from '@/domain/forum/application/repositories/question-attachments-repository'
+import { QuestionAttachmentsRepository } from '@/domain/forum/application/repositories/question-attachments-repository'
 import { QuestionAttachment } from '@/domain/forum/enterprise/entities/question-attachment'
 import { Injectable } from '@nestjs/common'
 import { PrismaQuestionAttachmentMapper } from '../mappers/prisma-question-attachment-mappr'
@@ -6,7 +6,7 @@ import { PrismaService } from '../prisma.service'
 
 @Injectable()
 export class PrismaQuestionsAttachmentsRepository
-  implements QuestionsAttachmentsRepository
+  implements QuestionAttachmentsRepository
 {
   constructor(private prisma: PrismaService) {}
 

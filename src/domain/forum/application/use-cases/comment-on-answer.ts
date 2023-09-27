@@ -2,7 +2,7 @@ import { Either, left, right } from '@/core/either'
 import { UniqueEntityID } from '@/core/entitites/unique-entity-id'
 import { ResourceNotFoundError } from '../../../../core/errors/Errors/resource-not-found'
 import { AnswerComment } from '../../enterprise/entities/answer-comment'
-import { AnswersCommentsRepository } from '../repositories/answer-comments-repository'
+import { AnswerCommentsRepository } from '../repositories/answer-comments-repository'
 import { AnswersRepository } from '../repositories/answers-repository'
 
 interface CommentOnAnswerUseCaseRequest {
@@ -21,7 +21,7 @@ type CommentOnAnswerUseCaseResponse = Either<
 export class CommentOnAnswerUseCase {
   constructor(
     private answerRepository: AnswersRepository,
-    private answerCommentRepository: AnswersCommentsRepository,
+    private answerCommentRepository: AnswerCommentsRepository,
   ) {}
 
   async execute({

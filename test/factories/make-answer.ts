@@ -10,17 +10,17 @@ export function makeAnswer(
   override: Partial<AnswerProps> = {},
   id?: UniqueEntityID,
 ) {
-  const newAnswer = Answer.create(
+  const answer = Answer.create(
     {
-      questionId: new UniqueEntityID(),
       authorId: new UniqueEntityID(),
+      questionId: new UniqueEntityID(),
       content: faker.lorem.text(),
       ...override,
     },
     id,
   )
 
-  return newAnswer
+  return answer
 }
 
 @Injectable()

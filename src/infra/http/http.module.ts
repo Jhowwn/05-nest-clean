@@ -11,8 +11,20 @@ import { DatabaseModule } from '../database/database.module'
 import { CreateQuestionController } from './controllers/create-question.controller'
 import { FetchRecentQuestionsController } from './controllers/fetch-recent-questions.controller'
 
+import { AnswerQuestionUseCase } from '@/domain/forum/application/use-cases/answer-question'
+import { DeleteAnswerUseCase } from '@/domain/forum/application/use-cases/delete-answer'
+import { DeleteQuestionUseCase } from '@/domain/forum/application/use-cases/delete-question'
+import { EditAnswerUseCase } from '@/domain/forum/application/use-cases/edit-answer'
+import { EditQuestionUseCase } from '@/domain/forum/application/use-cases/edit-question'
+import { FetchQuestionAnswersUseCase } from '@/domain/forum/application/use-cases/fetch-question-answers'
 import { GetQuestionBySlugUseCase } from '@/domain/forum/application/use-cases/get-question-by-slug'
+import { AnswerQuestionController } from './controllers/answer-question.controller'
 import { CreateAccountController } from './controllers/create-account.controller'
+import { DeleteAnswerController } from './controllers/delete-answer.controller'
+import { DeleteQuestionController } from './controllers/delete-question.controller'
+import { EditAnswerController } from './controllers/edit-answer.controller'
+import { EditQuestionController } from './controllers/edit-question.controller'
+import { FetchQuestionAnswersController } from './controllers/fetch-question-answers'
 import { GetQuestionBySlugController } from './controllers/get-question-by-slug'
 
 @Module({
@@ -23,6 +35,12 @@ import { GetQuestionBySlugController } from './controllers/get-question-by-slug'
     CreateQuestionController,
     FetchRecentQuestionsController,
     GetQuestionBySlugController,
+    EditQuestionController,
+    DeleteQuestionController,
+    AnswerQuestionController,
+    EditAnswerController,
+    DeleteAnswerController,
+    FetchQuestionAnswersController,
   ],
   providers: [
     CreateQuestionUseCase,
@@ -30,6 +48,12 @@ import { GetQuestionBySlugController } from './controllers/get-question-by-slug'
     RegisterStudentUseCase,
     AuthenticateStudentUseCase,
     GetQuestionBySlugUseCase,
+    EditQuestionUseCase,
+    DeleteQuestionUseCase,
+    AnswerQuestionUseCase,
+    EditAnswerUseCase,
+    DeleteAnswerUseCase,
+    FetchQuestionAnswersUseCase,
   ],
 })
 export class HttpModule {}

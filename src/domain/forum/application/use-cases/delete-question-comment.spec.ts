@@ -2,17 +2,17 @@ import { UniqueEntityID } from '@/core/entitites/unique-entity-id'
 import { makeQuestionComment } from 'test/factories/make-question-comment'
 import { InMemoryQuestionCommentsRepository } from 'test/repositories/in-memory-question-comments-repository'
 import { NotAllowedError } from '../../../../core/errors/Errors/not-allowed-error'
-import { DeleteQuestionCommenUseCase } from './delete-question-comment'
+import { DeleteQuestionCommentUseCase } from './delete-question-comment'
 
 let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
-let sut: DeleteQuestionCommenUseCase
+let sut: DeleteQuestionCommentUseCase
 
 describe('Delete Question Comment', () => {
   beforeEach(() => {
     inMemoryQuestionCommentsRepository =
       new InMemoryQuestionCommentsRepository()
 
-    sut = new DeleteQuestionCommenUseCase(inMemoryQuestionCommentsRepository)
+    sut = new DeleteQuestionCommentUseCase(inMemoryQuestionCommentsRepository)
   })
 
   it('Should be able to delete a comment on question', async () => {

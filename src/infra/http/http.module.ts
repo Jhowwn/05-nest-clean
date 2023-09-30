@@ -40,6 +40,7 @@ import { FetchAnswerCommentsController } from './controllers/fetch-answer-commen
 import { FetchQuestionAnswersController } from './controllers/fetch-question-answers'
 import { FetchQuestionCommentsController } from './controllers/fetch-question-comments.controller'
 import { GetQuestionBySlugController } from './controllers/get-question-by-slug'
+import { UploadAttachmentController } from './controllers/upload-attachment.controller'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -62,6 +63,7 @@ import { GetQuestionBySlugController } from './controllers/get-question-by-slug'
     DeleteAnswerCommentController,
     FetchQuestionCommentsController,
     FetchAnswerCommentsController,
+    UploadAttachmentController,
   ],
   providers: [
     CreateQuestionUseCase,

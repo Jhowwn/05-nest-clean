@@ -28,8 +28,6 @@ export class FetchQuestionAnswersUseCase {
       { page },
     )
 
-    console.log(answers)
-
     return right({
       answers,
     })

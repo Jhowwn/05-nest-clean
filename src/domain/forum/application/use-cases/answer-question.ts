@@ -1,6 +1,6 @@
 import { Either, right } from '@/core/either'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Injectable } from '@nestjs/common'
-import { UniqueEntityID } from '../../../../core/entitites/unique-entity-id'
 import { Answer } from '../../enterprise/entities/answer'
 import { AnswerAttachment } from '../../enterprise/entities/answer-attachment'
 import { AnswerAttachmentList } from '../../enterprise/entities/answer-attachment-list'
@@ -13,12 +13,13 @@ interface AnswerQuestionUseCaseRequest {
   content: string
 }
 
-type AnswerAnswerUseCaseResponse = Either<
+type AnswerQuestionUseCaseResponse = Either<
   null,
   {
     answer: Answer
   }
 >
+
 @Injectable()
 export class AnswerQuestionUseCase {
   constructor(private answersRepository: AnswersRepository) {}
@@ -28,14 +29,12 @@ export class AnswerQuestionUseCase {
     questionId,
     content,
     attachmentsIds,
-  }: AnswerQuestionUseCaseRequest): Promise<AnswerAnswerUseCaseResponse> {
+  }: AnswerQuestionUseCaseRequest): Promise<AnswerQuestionUseCaseResponse> {
     const answer = Answer.create({
       content,
       authorId: new UniqueEntityID(authorId),
       questionId: new UniqueEntityID(questionId),
     })
-
-    await this.answersRepository.create(answer)
 
     const answerAttachments = attachmentsIds.map((attachmentId) => {
       return AnswerAttachment.create({
@@ -45,6 +44,8 @@ export class AnswerQuestionUseCase {
     })
 
     answer.attachments = new AnswerAttachmentList(answerAttachments)
+
+    await this.answersRepository.create(answer)
 
     return right({
       answer,

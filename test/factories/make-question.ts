@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker'
 
-import { UniqueEntityID } from '@/core/entitites/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import {
-  Question,
-  QuestionProps,
+    Question,
+    QuestionProps,
 } from '@/domain/forum/enterprise/entities/question'
 import { PrismaQuestionMapper } from '@/infra/database/prisma/mappers/prisma-question-mapper'
 import { PrismaService } from '@/infra/database/prisma/prisma.service'

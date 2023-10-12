@@ -1,4 +1,4 @@
-import { UniqueEntityID } from '@/core/entitites/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answer-attachment'
 import { Prisma, Attachment as PrismaAttachment } from '@prisma/client'
 

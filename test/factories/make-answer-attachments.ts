@@ -1,7 +1,7 @@
-import { UniqueEntityID } from '@/core/entitites/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import {
-  AnswerAttachment,
-  AnswerAttachmentProps,
+    AnswerAttachment,
+    AnswerAttachmentProps,
 } from '@/domain/forum/enterprise/entities/answer-attachment'
 import { PrismaService } from '@/infra/database/prisma/prisma.service'
 import { Injectable } from '@nestjs/common'

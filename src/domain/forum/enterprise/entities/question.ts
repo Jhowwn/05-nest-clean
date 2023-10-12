@@ -1,5 +1,5 @@
-import { AggregateRoot } from '@/core/entitites/aggregate-root'
-import { UniqueEntityID } from '@/core/entitites/unique-entity-id'
+import { AggregateRoot } from '@/core/entities/aggregate-root'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 import dayjs from 'dayjs'
 import { QuestionBestAnswerChosenEvent } from '../events/question-best-answer-chosen-event'

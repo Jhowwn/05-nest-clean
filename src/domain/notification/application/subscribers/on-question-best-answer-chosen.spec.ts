@@ -13,8 +13,8 @@ import {
   SendNotificationUseCase,
   SendNotificationUseCaseRequest,
   SendNotificationUseCaseResponse,
-} from '../application/use-cases/send-notification'
-import { OnAnswerCreated } from './on-answer-created'
+} from '../use-cases/send-notification'
+import { OnQuestionBestAnswerChosen } from './on-question-best-answer-chosen'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository
@@ -30,7 +30,7 @@ let sendNotificationExecuteSpy: SpyInstance<
   Promise<SendNotificationUseCaseResponse>
 >
 
-describe('On Answer Created', () => {
+describe('On Question Best Answer Chosen', () => {
   beforeEach(() => {
     inMemoryAnswerAttachmentsRepository =
       new InMemoryAnswerAttachmentsRepository()
@@ -53,15 +53,22 @@ describe('On Answer Created', () => {
 
     sendNotificationExecuteSpy = vi.spyOn(sendNotificationUseCase, 'execute')
 
-    new OnAnswerCreated(inMemoryQuestionsRepository, sendNotificationUseCase)
+    new OnQuestionBestAnswerChosen(
+      inMemoryAnswersRepository,
+      sendNotificationUseCase,
+    )
   })
 
-  it('Should asen a notification when an answer is created', async () => {
+  it('Should asen a notification when question has best answer chosen', async () => {
     const question = makeQuestion()
     const answer = makeAnswer({ questionId: question.id })
 
     inMemoryQuestionsRepository.create(question)
     inMemoryAnswersRepository.create(answer)
+
+    question.bestAnswerId = answer.id
+
+    inMemoryQuestionsRepository.save(question)
 
     await waitFor(() => {
       expect(sendNotificationExecuteSpy).toHaveBeenCalled()
